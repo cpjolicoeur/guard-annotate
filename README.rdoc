@@ -28,9 +28,12 @@ Please read the {Guard usage docs}[https://github.com/guard/guard#readme]
 === Standard Ruby on Rails project
 
     guard 'annotate' do
-      watch('app/models/**.rb')
+      watch( 'db/schema.rb' )
+      # Uncomment the following line if you also want to run annotate anytime
+      # a model file changes
+      #watch( 'app/models/**/*.rb' )
     end
-
+    
 
 == Options
 
