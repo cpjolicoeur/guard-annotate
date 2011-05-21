@@ -11,6 +11,7 @@ module Guard
       super
       
       options[:notify] = true if options[:notify].nil?
+      options[:position] = 'before' if options[:position].nil?
     end
 
     def start
@@ -39,10 +40,14 @@ module Guard
       !!options[:notify]
     end
     
+    def annotation_position
+      options[:position]
+    end
+    
     def run_annotate
       UI.info 'Running annotate', :reset => true
       started_at = Time.now
-      @result = system('annotate --exclude tests,fixtures -p before')
+      @result = system("annotate --exclude tests,fixtures -p #{annotation_position}")
       Notifier::notify( @result, Time.now - started_at ) if notify?
       @result
     end

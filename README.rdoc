@@ -34,12 +34,17 @@ Please read the {Guard usage docs}[https://github.com/guard/guard#readme]
 
 == Options
 
-You can disable desktop notifications with:
+You can disable desktop notifications with (default is notifications are enabled):
 
     guard 'annotate', :notify => false do
       ...
     end
 
+You can customize the placement of the annotations with (default is 'before'):
+
+    guard 'annotate', :position => 'before|after' do
+      ...
+    end
 
 == Development
 

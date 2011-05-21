@@ -9,9 +9,27 @@ describe Guard::Annotate do
         subject.should be_notify
       end
       
-      it "should be able to be set to false" do
+      it "should allow notifications to be turned off" do
         subject = Guard::Annotate.new( [], :notify => false )
         subject.options[:notify].should be_false
+      end
+
+      it "should use 'before' position by default" do
+        subject.options[:position].should == 'before'
+      end
+      
+      it "should allow user to customize position (before)" do
+        subject = Guard::Annotate.new( [], :position => 'before' )
+        subject.options[:position].should == 'before'
+        subject.should_receive(:system).with("annotate --exclude tests,fixtures -p before")
+        subject.start
+      end
+
+      it "should allow user to customize position (after)" do
+        subject = Guard::Annotate.new( [], :position => 'after' )
+        subject.options[:position].should == 'after'
+        subject.should_receive(:system).with("annotate --exclude tests,fixtures -p after")
+        subject.start
       end
     end
   end
