@@ -42,7 +42,7 @@ module Guard
     def run_annotate
       UI.info 'Running annotate', :reset => true
       started_at = Time.now
-      @result = system('annotate')
+      @result = system('annotate --exclude tests,fixtures -p before')
       Notifier::notify( @result, Time.now - started_at ) if notify?
       @result
     end

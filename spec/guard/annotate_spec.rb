@@ -18,12 +18,12 @@ describe Guard::Annotate do
   
   context "start" do
     it "should run annotate command" do
-      subject.should_receive(:system).with("annotate")
+      subject.should_receive(:system).with("annotate --exclude tests,fixtures -p before")
       subject.start
     end
     
     it "should return false if annotate command fails" do
-      subject.should_receive(:system).with("annotate").and_return(false)
+      subject.should_receive(:system).with("annotate --exclude tests,fixtures -p before").and_return(false)
       subject.start.should be_false
     end
   end
@@ -42,24 +42,24 @@ describe Guard::Annotate do
   
   context "reload" do
     it "should run annotate command" do
-      subject.should_receive(:system).with("annotate")
+      subject.should_receive(:system).with("annotate --exclude tests,fixtures -p before")
       subject.reload
     end
     
     it "should return false if annotate command fails" do
-      subject.should_receive(:system).with("annotate").and_return(false)
+      subject.should_receive(:system).with("annotate --exclude tests,fixtures -p before").and_return(false)
       subject.reload.should be_false
     end
   end
   
   context "run_on_change" do
     it "should run annotate command" do
-      subject.should_receive(:system).with("annotate")
+      subject.should_receive(:system).with("annotate --exclude tests,fixtures -p before")
       subject.run_on_change
     end
     
     it "should return false if annotate command fails" do
-      subject.should_receive(:system).with("annotate").and_return(false)
+      subject.should_receive(:system).with("annotate --exclude tests,fixtures -p before").and_return(false)
       subject.run_on_change.should be_false
     end
   end
