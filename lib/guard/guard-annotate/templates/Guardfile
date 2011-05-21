@@ -1,0 +1,3 @@
+guard 'annotate' do
+  watch( 'app/models/*.rb' )
+end
