@@ -1,10 +1,10 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "guard/guard-annotate/version"
+require "guard/annotate/version"
 
 Gem::Specification.new do |s|
   s.name        = "guard-annotate"
-  s.version     = Guard::Annotate::VERSION
+  s.version     = Guard::AnnotateVersion::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Craig P Jolicoeur"]
   s.email       = ["cpjolicoeur@gmail.com"]

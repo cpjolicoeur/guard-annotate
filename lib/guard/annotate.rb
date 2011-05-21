@@ -26,7 +26,7 @@ module Guard
     end
 
     def run_all
-      run_annotate
+      true
     end
 
     def run_on_change( paths=[] )
@@ -41,7 +41,7 @@ module Guard
     
     def run_annotate
       UI.info 'Running annotate', :reset => true
-      start_at = Time.now
+      started_at = Time.now
       @result = system('annotate')
       Notifier::notify( @result, Time.now - started_at ) if notify?
       @result
