@@ -1,3 +1,6 @@
 guard 'annotate' do
-  watch( 'app/models/*.rb' )
+  watch( 'db/schema.rb' )
+  # Uncomment the following line if you also want to run annotate anytime
+  # a model file changes
+  #watch( 'app/models/**/*.rb' )
 end
