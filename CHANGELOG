@@ -1,3 +1,10 @@
+== 0.3.0 - 2011/06/08
+
+* added option for annotating routes
+  - :routes => true (false by default)
+* added options for annotating tests and fixtures
+  - :tests => true (false by default)
+
 == 0.2.0 - 2011/05/21
 
 * Add option for placement of annotations
