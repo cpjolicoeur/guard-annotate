@@ -31,6 +31,18 @@ describe Guard::Annotate do
         subject.should_receive(:system).with("annotate --exclude tests,fixtures -p after")
         subject.start
       end
+      
+      describe "routes" do
+        it "should not run routes by default" do
+          subject.options[:routes].should be_false
+        end
+        
+        it "should allow the users to run routes if desired" do
+          subject = Guard::Annotate.new( [], :routes => true)
+          subject.should_receive(:system).twice
+          subject.start
+        end
+      end
     end
   end
   
