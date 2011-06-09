@@ -12,6 +12,7 @@ module Guard
       
       options[:notify] = true if options[:notify].nil?
       options[:position] = 'before' if options[:position].nil?
+      options[:tests] = false if options[:tests].nil?
       options[:routes] = false if options[:routes].nil?
     end
 
@@ -49,10 +50,14 @@ module Guard
       options[:routes]
     end
     
+    def annotate_tests_flags
+      options[:tests] ? "" : "--exclude tests,fixtures"
+    end
+    
     def run_annotate
       UI.info 'Running annotate', :reset => true
       started_at = Time.now
-      @result = system("annotate --exclude tests,fixtures -p #{annotation_position}")
+      @result = system("annotate #{annotate_tests_flags} -p #{annotation_position}")
       Notifier::notify( @result, Time.now - started_at ) if notify?
 
       if annotate_routes?

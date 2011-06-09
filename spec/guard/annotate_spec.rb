@@ -43,6 +43,18 @@ describe Guard::Annotate do
           subject.start
         end
       end
+      
+      describe "tests & fixtures" do
+        it "should not run tests annotations by default" do
+          subject.options[:tests].should be_false
+        end
+        
+        it "should allo user to run tests and fixtures annotations if desired" do
+          subject = Guard::Annotate.new( [], :tests => true )
+          subject.should_receive(:system).with("annotate  -p before")
+          subject.start
+        end
+      end
     end
   end
   
