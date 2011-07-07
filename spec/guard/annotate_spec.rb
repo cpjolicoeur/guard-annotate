@@ -21,14 +21,14 @@ describe Guard::Annotate do
       it "should allow user to customize position (before)" do
         subject = Guard::Annotate.new( [], :position => 'before' )
         subject.options[:position].should == 'before'
-        subject.should_receive(:system).with("annotate --exclude tests,fixtures -p before")
+        subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures -p before")
         subject.start
       end
 
       it "should allow user to customize position (after)" do
         subject = Guard::Annotate.new( [], :position => 'after' )
         subject.options[:position].should == 'after'
-        subject.should_receive(:system).with("annotate --exclude tests,fixtures -p after")
+        subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures -p after")
         subject.start
       end
       
@@ -51,7 +51,7 @@ describe Guard::Annotate do
         
         it "should allo user to run tests and fixtures annotations if desired" do
           subject = Guard::Annotate.new( [], :tests => true )
-          subject.should_receive(:system).with("annotate  -p before")
+          subject.should_receive(:system).with("bundle exec annotate  -p before")
           subject.start
         end
       end
@@ -60,12 +60,12 @@ describe Guard::Annotate do
   
   context "start" do
     it "should run annotate command" do
-      subject.should_receive(:system).with("annotate --exclude tests,fixtures -p before")
+      subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures -p before")
       subject.start
     end
     
     it "should return false if annotate command fails" do
-      subject.should_receive(:system).with("annotate --exclude tests,fixtures -p before").and_return(false)
+      subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures -p before").and_return(false)
       subject.start.should be_false
     end
   end
@@ -84,24 +84,24 @@ describe Guard::Annotate do
   
   context "reload" do
     it "should run annotate command" do
-      subject.should_receive(:system).with("annotate --exclude tests,fixtures -p before")
+      subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures -p before")
       subject.reload
     end
     
     it "should return false if annotate command fails" do
-      subject.should_receive(:system).with("annotate --exclude tests,fixtures -p before").and_return(false)
+      subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures -p before").and_return(false)
       subject.reload.should be_false
     end
   end
   
   context "run_on_change" do
     it "should run annotate command" do
-      subject.should_receive(:system).with("annotate --exclude tests,fixtures -p before")
+      subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures -p before")
       subject.run_on_change
     end
     
     it "should return false if annotate command fails" do
-      subject.should_receive(:system).with("annotate --exclude tests,fixtures -p before").and_return(false)
+      subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures -p before").and_return(false)
       subject.run_on_change.should be_false
     end
   end
