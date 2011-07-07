@@ -1,3 +1,7 @@
+== 0.4.0 - 2011/07/07
+
+* run annotate command using bundler
+
 == 0.3.0 - 2011/06/08
 
 * added option for annotating routes
