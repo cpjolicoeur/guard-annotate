@@ -132,6 +132,12 @@ describe Guard::Annotate do
       subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures -p before").and_return(false)
       subject.reload.should be_false
     end
+
+    it 'should not run annotate command if disabled :run_at_start' do
+      subject.should_not_receive(:system)
+      subject.options[:run_at_start] = false
+      subject.reload
+    end
   end
 
   context "run_all" do
