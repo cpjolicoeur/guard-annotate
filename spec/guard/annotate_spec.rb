@@ -85,6 +85,17 @@ describe Guard::Annotate do
         subject.start
       end
     end
+    
+    describe "run_at_start" do
+      it "should run at start by default" do
+        subject.options[:run_at_start].should be_true
+      end
+
+      it "should allow user to opt out of running at start" do
+        subject = Guard::Annotate.new( [], :run_at_start => false)
+        subject.options[:run_at_start].should be_false
+      end
+    end
   end
 
   context "start" do
