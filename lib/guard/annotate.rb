@@ -63,7 +63,7 @@ module Guard
 
       if annotate_routes?
         started_at = Time.now
-        @result = system("bundle exec annotate -r")
+        @result = system("bundle exec annotate -r -p #{annotation_position}")
         Notifier::notify( @result, Time.now - started_at ) if notify?
       end
 

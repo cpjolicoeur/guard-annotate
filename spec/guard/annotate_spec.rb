@@ -39,7 +39,22 @@ describe Guard::Annotate do
 
         it "should allow the users to run routes if desired" do
           subject = Guard::Annotate.new( [], :routes => true)
-          subject.should_receive(:system).twice
+          subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures -p before")
+          subject.should_receive(:system).with("bundle exec annotate -r -p before")
+          subject.start
+        end
+
+        it "should allow the user to customize routes annotation position (before)" do
+          subject = Guard::Annotate.new( [], :routes => true, :position => 'before')
+          subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures -p before")
+          subject.should_receive(:system).with("bundle exec annotate -r -p before")
+          subject.start
+        end
+
+        it "should allow the user to customize routes annotation position (after)" do
+          subject = Guard::Annotate.new( [], :routes => true, :position => 'after')
+          subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures -p after")
+          subject.should_receive(:system).with("bundle exec annotate -r -p after")
           subject.start
         end
       end
