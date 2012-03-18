@@ -49,7 +49,7 @@ describe Guard::Annotate do
           subject.options[:tests].should be_false
         end
 
-        it "should allo user to run tests and fixtures annotations if desired" do
+        it "should allow user to run tests and fixtures annotations if desired" do
           subject = Guard::Annotate.new( [], :tests => true )
           subject.should_receive(:system).with("bundle exec annotate  -p before")
           subject.start
