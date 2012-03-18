@@ -70,6 +70,18 @@ describe Guard::Annotate do
           subject.start
         end
       end
+
+      describe "indexes" do
+        it "should not add indexes to annotations by default" do
+          subject.options[:show_indexes].should be_false
+        end
+
+        it "should allow user to add indexes to annotations if desired" do
+          subject = Guard::Annotate.new( [], :show_indexes => true )
+          subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures -p before --show-indexes")
+          subject.start
+        end
+      end
     end
   end
 
