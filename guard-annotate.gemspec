@@ -17,8 +17,8 @@ Gem::Specification.new do |s|
   s.add_dependency 'guard', '>= 0.2.2'
   s.add_dependency 'annotate', '>= 2.4.0'
 
-  s.add_development_dependency 'rspec', '~> 2.6.0'
-  s.add_development_dependency 'guard-rspec', '~> 0.3.1'
+  s.add_development_dependency 'rspec', '~> 2.9.0'
+  s.add_development_dependency 'guard-rspec', '~> 0.6.0'
 
   # s.files         = `git ls-files`.split("\\n")
   # s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\\n")
