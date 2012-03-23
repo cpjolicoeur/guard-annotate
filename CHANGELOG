@@ -1,3 +1,7 @@
+== 0.9.4 - 2012/03/23
+
+* add :run_at_start option
+
 == 0.9.3 - 2012/03/18
 
 * add option for annotating indexes
