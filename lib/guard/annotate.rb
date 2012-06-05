@@ -34,9 +34,10 @@ module Guard
       true
     end
 
-    def run_on_change( paths=[] )
+    def run_on_changes( paths=[] )
       run_annotate
     end
+    alias :run_on_change :run_on_changes
 
     private
 
