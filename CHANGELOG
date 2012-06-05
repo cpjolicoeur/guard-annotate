@@ -1,3 +1,7 @@
+== 1.0 - 2012/06/05
+
+* remove guard v1.1 deprecation warnings
+
 == 0.9.4 - 2012/03/23
 
 * add :run_at_start option

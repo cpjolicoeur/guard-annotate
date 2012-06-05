@@ -1,6 +1,6 @@
 # encoding: utf-8
 module Guard
   module AnnotateVersion
-    VERSION = "0.9.4"
+    VERSION = "1.0.0"
   end
 end
