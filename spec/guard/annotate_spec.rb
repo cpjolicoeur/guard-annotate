@@ -146,18 +146,6 @@ describe Guard::Annotate do
     end
   end
 
-  context "run_on_change" do
-    it "should run annotate command" do
-      subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures -p before")
-      subject.run_on_change
-    end
-
-    it "should return false if annotate command fails" do
-      subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures -p before").and_return(false)
-      subject.run_on_change.should be_false
-    end
-  end
-
   # For Guard 1.1. #run_on_change is deprecated
   context "run_on_changes" do
     it "should run annotate command" do
