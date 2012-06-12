@@ -1,6 +1,7 @@
 # encoding: utf-8
 require 'guard'
 require 'guard/guard'
+require 'guard/version'
 
 module Guard
   class Annotate < Guard
