@@ -69,7 +69,25 @@ You can disable run at start with (default is true):
 
 You can annotate indexes on your models with (default is false):
 
-    guard 'annotate', :show_indexes => true
+    guard 'annotate', :show_indexes => true do
+      ...
+    end
+
+You can add simple indexes to the column information (default is false):
+
+    guard 'annotate', :simple_indexes => true do
+      ...
+    end
+
+You can show migration version number in the annotation (default is false):
+
+    guard 'annotate', :show_migration => true do
+      ...
+    end
+
+You can annotate in three different formats: :bare, :rdoc and :markdown (default is :bare):
+
+    guard 'annotate', :format => :rdoc do
       ...
     end
 
