@@ -85,6 +85,66 @@ describe Guard::Annotate do
         subject.start
       end
     end
+
+    describe "simple indexes" do
+      it "should not add simple indexes to annotations by default" do
+        subject.options[:simple_indexes].should be_false
+      end
+
+      it "should allow user to add simple indexes to annotations if desired" do
+        subject = Guard::Annotate.new( [], :simple_indexes => true )
+        subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures -p before --simple-indexes")
+        subject.start
+      end
+    end
+
+    describe "show migration" do
+      it "should not show migration version in annotations by default" do
+        subject.options[:show_migration].should be_false
+      end
+
+      it "should allow user to add migration version in annotations if desired" do
+        subject = Guard::Annotate.new( [], :show_migration => true )
+        subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures -p before --show-migration")
+        subject.start
+      end
+    end
+
+    describe "annotation format" do
+      it "should not add format type to annotations by default" do
+        subject.options[:show_migration].should be_false
+      end
+
+      describe "invalid" do
+        it "should not add format type if option given is invalid" do
+          subject = Guard::Annotate.new( [], :format => :invalid_option)
+          subject.options[:show_migration].should be_false
+          subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures -p before")
+          subject.start
+        end
+      end
+      describe "bare" do
+        it "should allow user to choose format of annotations if desired" do
+          subject = Guard::Annotate.new( [], :format => :bare )
+          subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures -p before --format=bare")
+          subject.start
+        end
+      end
+      describe "rdoc" do
+        it "should allow user to choose format of annotations if desired" do
+          subject = Guard::Annotate.new( [], :format => :rdoc )
+          subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures -p before --format=rdoc")
+          subject.start
+        end
+      end
+      describe "markdown" do
+        it "should allow user to choose format of annotations if desired" do
+          subject = Guard::Annotate.new( [], :format => :markdown )
+          subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures -p before --format=markdown")
+          subject.start
+        end
+      end
+    end
     
     describe "run_at_start" do
       it "should run at start by default" do
