@@ -1,3 +1,7 @@
+== 1.1.0 - 2013/04/18
+
+* Add more options to annotate command (show migration version, simple indexed, formatting)
+
 == 1.0 - 2012/06/05
 
 * remove guard v1.1 deprecation warnings
