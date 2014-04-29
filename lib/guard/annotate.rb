@@ -14,6 +14,7 @@ module Guard
       options[:notify] = true if options[:notify].nil?
       options[:position] = 'before' if options[:position].nil?
       options[:tests] = false if options[:tests].nil?
+      options[:sort] = false if options[:sort].nil?
       options[:routes] = false if options[:routes].nil?
       options[:run_at_start] = true if options[:run_at_start].nil?
       options[:show_indexes] = false if options[:show_indexes].nil?
@@ -61,6 +62,10 @@ module Guard
       options[:tests] ? '' : '--exclude tests,fixtures'
     end
 
+    def annotate_sort_columns?
+      options[:sort]
+    end
+
     def show_indexes?
       options[:show_indexes]
     end
@@ -87,6 +92,7 @@ module Guard
       annotate_models_options, annotate_options = '', ''
 
       annotate_models_command = "bundle exec annotate #{annotate_tests_flags} -p #{annotation_position}"
+      annotate_models_options += ' --sort' if annotate_sort_columns?
       annotate_models_options += ' --show-indexes' if show_indexes?
       annotate_models_options += ' --simple-indexes' if simple_indexes?
       annotate_models_options += ' --show-migration' if show_migration?
