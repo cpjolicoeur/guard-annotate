@@ -73,6 +73,18 @@ describe Guard::Annotate do
         subject.start
       end
     end
+    
+    describe "sort columns by name" do
+      it "should not sort columns by name by default" do
+        subject.options[:sort].should be_false
+      end
+
+      it "should allow user to sort columns by name if desired" do
+        subject = Guard::Annotate.new( [], :sort => true )
+        subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures --sort -p before")
+        subject.start
+      end
+    end
 
     describe "indexes" do
       it "should not add indexes to annotations by default" do
