@@ -104,7 +104,12 @@ module Guard
 
       if annotate_routes?
         started_at = Time.now
-        annotate_routes_command = "bundle exec annotate -r -p #{annotation_position}"
+        position = if %w[after before].include? options[:routes].to_s
+          options[:routes]
+        else
+          annotation_position
+        end
+        annotate_routes_command = "bundle exec annotate -r -p #{position}"
 
         annotate_routes_command += annotate_options
         @result = system(annotate_routes_command)
