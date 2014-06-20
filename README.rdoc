@@ -49,9 +49,9 @@ You can customize the placement of the annotations with (default is 'before'):
       ...
     end
 
-You can choose to also annotate your routes file with (default is false):
+You can choose to also annotate your routes file with true, false or 'before'/'after' (default is false):
 
-    guard 'annotate', :routes => true do
+    guard 'annotate', :routes => 'before|after' do
       ...
     end
 
