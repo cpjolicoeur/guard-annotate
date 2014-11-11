@@ -81,7 +81,7 @@ describe Guard::Annotate do
 
       it "should allow user to sort columns by name if desired" do
         subject = Guard::Annotate.new( [], :sort => true )
-        subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures --sort -p before")
+        subject.should_receive(:system).with("bundle exec annotate --exclude tests,fixtures -p before --sort")
         subject.start
       end
     end
