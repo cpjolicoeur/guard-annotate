@@ -1,14 +1,14 @@
 # encoding: utf-8
 require 'guard'
-require 'guard/guard'
+require 'guard/plugin'
 require 'guard/version'
 
 module Guard
-  class Annotate < Guard
+  class Annotate < Plugin
 
     autoload :Notifier, 'guard/annotate/notifier'
 
-    def initialize(watchers=[], options={})
+    def initialize(options={})
       super
 
       options[:notify] = true if options[:notify].nil?

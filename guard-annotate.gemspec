@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
 
   s.rubyforge_project = "guard-annotate"
 
-  s.add_dependency 'guard', '< 2.0', '>= 0.2.2'
+  s.add_dependency 'guard', '~> 2.0'
   s.add_dependency 'annotate', '>= 2.4.0'
 
   s.add_development_dependency 'rspec', '~> 2.9.0'
