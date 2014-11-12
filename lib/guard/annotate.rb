@@ -42,7 +42,7 @@ module Guard
     def run_on_changes(paths=[])
       run_annotate
     end
-    alias :run_on_change :run_on_changes if VERSION < '1.1.0'
+    alias :run_on_change :run_on_changes if Guard::AnnotateVersion::VERSION < '1.1.0'
 
     private
 
