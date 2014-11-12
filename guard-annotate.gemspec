@@ -11,11 +11,12 @@ Gem::Specification.new do |s|
   s.homepage    = "http://craigjolicoeur.com"
   s.summary     = %q{Guard gem for annotate}
   s.description = %q{Guard::Annotate automatically runs the annotate gem when needed}
+  s.license     = "MIT"
 
   s.rubyforge_project = "guard-annotate"
 
   s.add_dependency 'guard', '~> 2.0'
-  s.add_dependency 'annotate', '>= 2.4.0'
+  s.add_dependency 'annotate', '~> 2.4', '>= 2.4.0'
 
   s.add_development_dependency 'rspec', '~> 2.9.0'
   s.add_development_dependency 'guard-rspec', '~> 0.6.0'
