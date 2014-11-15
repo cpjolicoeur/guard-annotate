@@ -2,6 +2,7 @@
 require 'guard'
 require 'guard/plugin'
 require 'guard/version'
+require 'guard/annotate/version'
 
 module Guard
   class Annotate < Plugin
