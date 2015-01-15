@@ -1,10 +1,13 @@
+require 'guard/compat/test/helper'
+
 require 'guard/annotate'
 
 RSpec.describe Guard::Annotate do
   subject { Guard::Annotate.new }
 
   before do
-    allow(Guard::UI).to receive(:info)
+    allow(Guard::Compat::UI).to receive(:info)
+    allow(Guard::Compat::UI).to receive(:notify)
   end
 
   context "#initialize options" do
