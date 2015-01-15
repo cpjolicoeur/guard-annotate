@@ -3,6 +3,10 @@ require 'guard/annotate'
 RSpec.describe Guard::Annotate do
   subject { Guard::Annotate.new }
 
+  before do
+    allow(Guard::UI).to receive(:info)
+  end
+
   context "#initialize options" do
     describe "notify" do
       it "should be true by default" do
