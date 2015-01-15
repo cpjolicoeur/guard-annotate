@@ -8,6 +8,6 @@ RSpec.configure do |c|
   c.run_all_when_everything_filtered = true
 
   c.before( :each ) do
-    ::Guard::Notifier.stub( :notify ).and_return( true )
+    allow(::Guard::Notifier).to receive( :notify ).and_return( true )
   end
 end
