@@ -1,13 +1,24 @@
-require 'rspec'
-require 'guard/annotate'
-
-Dir["#{File.expand_path('..', __FILE__)}/support/**/*.rb"].each { |f| require f }
-
-RSpec.configure do |c|
-  c.filter_run :focus => true
-  c.run_all_when_everything_filtered = true
-
-  c.before( :each ) do
-    allow(::Guard::Notifier).to receive( :notify ).and_return( true )
+RSpec.configure do |config|
+  config.expect_with :rspec do |expectations|
+    expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
+
+  config.mock_with :rspec do |mocks|
+    mocks.verify_partial_doubles = true
+  end
+
+  config.filter_run :focus
+  config.run_all_when_everything_filtered = true
+
+  config.disable_monkey_patching!
+
+  # config.warnings = true
+
+  config.default_formatter = 'doc' if config.files_to_run.one?
+
+  # config.profile_examples = 10
+
+  config.order = :random
+
+  Kernel.srand config.seed
 end
