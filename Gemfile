@@ -9,6 +9,7 @@ end
 
 group :development do
   gem 'guard-rspec', '~> 0.6.0'
+  gem 'transpec'
 end
 
 group :test do
