@@ -6,7 +6,7 @@ describe Guard::Annotate do
   context "#initialize options" do
     describe "notify" do
       it "should be true by default" do
-        expect(subject).to be_notify
+        expect(subject.send(:notify?)).to be(true)
       end
 
       it "should allow notifications to be turned off" do
@@ -73,7 +73,7 @@ describe Guard::Annotate do
         subject.start
       end
     end
-    
+
     describe "sort columns by name" do
       it "should not sort columns by name by default" do
         expect(subject.options[:sort]).to be_falsey
@@ -157,7 +157,7 @@ describe Guard::Annotate do
         end
       end
     end
-    
+
     describe "run_at_start" do
       it "should run at start by default" do
         expect(subject.options[:run_at_start]).to be_truthy
