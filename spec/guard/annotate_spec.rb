@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'guard/annotate'
 
-describe Guard::Annotate do
+RSpec.describe Guard::Annotate do
   subject { Guard::Annotate.new }
 
   context "#initialize options" do
