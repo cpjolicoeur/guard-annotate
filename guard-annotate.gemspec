@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
 
   s.rubyforge_project = "guard-annotate"
 
-  s.add_dependency 'guard-compat', '~> 1.2.1'
+  s.add_dependency 'guard-compat', '~> 1.2', '>= 1.2.1'
   s.add_dependency 'annotate', '~> 2.4', '>= 2.4.0'
 
   s.add_development_dependency 'bundler', '~> 1.6'
