@@ -1,6 +1,5 @@
 # encoding: utf-8
-require 'guard'
-require 'guard/plugin'
+require 'guard/compat/plugin'
 require 'guard/annotate/version'
 
 module Guard
@@ -87,7 +86,7 @@ module Guard
     end
 
     def run_annotate
-      UI.info 'Running annotate', :reset => true
+      Compat::UI.info 'Running annotate', :reset => true
       started_at = Time.now
       annotate_models_options, annotate_options = '', ''
 

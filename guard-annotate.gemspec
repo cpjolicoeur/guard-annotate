@@ -15,12 +15,10 @@ Gem::Specification.new do |s|
 
   s.rubyforge_project = "guard-annotate"
 
-  s.add_dependency 'guard', '~> 2.0'
+  s.add_dependency 'guard-compat', '~> 1.2.1'
   s.add_dependency 'annotate', '~> 2.4', '>= 2.4.0'
 
-  s.add_development_dependency 'rspec', '~> 2.9.0'
-  s.add_development_dependency 'guard-rspec', '~> 0.6.0'
-  s.add_development_dependency 'rake', '~> 0.9.2.2'
+  s.add_development_dependency 'bundler', '~> 1.6'
 
   s.files = Dir.glob('{lib}/**/*') + %w[LICENSE README.rdoc]
   s.require_paths = ["lib"]
