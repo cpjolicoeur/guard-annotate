@@ -3,7 +3,7 @@
 Annotate guard runs the annotate gem when needed
 
 - Compatible with Annotate 2.4.x
-- Tested on Ruby 1.8.7, 1.9.2 & 1.9.3
+- Tested on Ruby 1.8.7, 1.9.x, 2.1.x
 
 == Install
 

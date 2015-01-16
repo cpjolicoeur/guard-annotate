@@ -1,3 +1,8 @@
+== 2.1 - 2015/01/16
+
+* Use guard-compat
+* Update rspec version and tests
+
 == 2.0.2 - 2014/11/20
 
 * bugfix release
