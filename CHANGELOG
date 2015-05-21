@@ -1,3 +1,7 @@
+== 2.2 - 2015/05/21
+
+* Added support to turn off annotations for serializers and factories
+
 == 2.1 - 2015/01/16
 
 * Use guard-compat
